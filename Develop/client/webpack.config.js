@@ -16,7 +16,7 @@ module.exports = () => {
     output: {
       filename: '[name].bundle.js',
       path: path.resolve(__dirname, 'dist'), 
-      publicPath: ""
+      // publicPath: ""
     },
     plugins: [
       new HtmlWebpackPlugin({
@@ -24,7 +24,7 @@ module.exports = () => {
         title: 'Text Editor'
       }),
       new InjectManifest({
-        swSrc: './src/sw.js',
+        swSrc: './src-sw.js',
         swDest: 'src-sw.js',
       }),
       new WebpackPwaManifest({
@@ -33,8 +33,8 @@ module.exports = () => {
         description: 'Keep track of notes and code snippets with/out a contanst internet connection!',
         background_color: '#7eb4e2',
         theme_color: '#7eb4e2',
-        start_url: './',
-        publicPath: './',
+        start_url: '/',
+        publicPath: '/',
         icons: [
           {
             src: path.resolve('src/images/logo.png'),
@@ -58,7 +58,7 @@ module.exports = () => {
             loader: 'babel-loader',
             options: {
               presets: ['@babel/preset-env'],
-              plugins: ['@babel/plugin-proposal-object-rest-spread', '@babel/transform-runtime', '@babel/preset-env', '@babel/runtime'],
+              plugins: ['@babel/plugin-proposal-object-rest-spread', '@babel/transform-runtime'],
             },
           },
         },
